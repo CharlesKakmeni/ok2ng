@@ -1,7 +1,4 @@
-#titre_principal
-{
-display: inline-block;
-}
+
 header h1
 {
 font-family: 'BallparkWeiner', serif;
@@ -57,6 +54,7 @@ background: lightgray;
 font-family: 'Trebuchet MS', Arial, sans-serif;
 color: #181818;
 }
+/*------------------------HERO-------------------------------------------------------*/
 #bloc_page
 {
 width: 900px;
@@ -68,27 +66,47 @@ font-family: serif;
 font-weight: normal;
 text-transform: uppercase;
 }
-nav
-{
-display: inline-block;
-width: 740px;
-text-align: right;
+header{
+    max-width: 1450px;
+    margin-bottom: -20px;
+}
+header::after{
+    content: "";
+    display: block;
+    max-width: 1650px;
+    border-bottom: 4px solid #000;
+}
+.img-block{
+    display: inline-block;
+    width: 200px;
+}
+.logo{
+    max-width: 100%;
+}
+nav{
+    margin-left: 500px;
+    padding-top: 0;
+    transform: translateY(-55px);
 }
 nav ul
 {
 list-style-type: none;
+
 }
 nav li
 {
 display: inline-block;
-margin-right: 15px;
+margin-left: 15px;
+float: right;
+
 }
-nav a
+nav li a
 {
 font-size: 1.3em;
 color: #181818;
 padding-bottom: 3px;
 text-decoration: none;
+
 }
 nav a:hover
 {
