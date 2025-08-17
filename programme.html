@@ -4,21 +4,24 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Programme • Ekombitié</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- NAV -->
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand"><a href="index.html" class="brand-link">Ekombitié</a></div>
-      <nav class="nav">
-        <button id="menuToggle2" class="menu-toggle" aria-expanded="false">☰</button>
-        <ul class="nav-list" id="navList2">
+      <div class="brand">
+        <a href="index.html" class="brand-link">Ekombitié <span class="dot">•</span> 27/12/2025</a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <button id="menuToggle" aria-expanded="false" class="menu-toggle">☰</button>
+        <ul class="nav-list" id="navList">
           <li><a href="index.html">Accueil</a></li>
           <li><a href="programme.html">Programme</a></li>
-          <li><a href="rsvp.html" class="btn-primary">RSVP</a></li>
-          <li><a href="accommodation.html">Accommodation</a></li>
+          <li><a href="rsvp.html">RSVP</a></li>
+          <li><a href="hebergement.html">Hébergement</a></li>
           <li><a href="faq.html">FAQ</a></li>
         </ul>
       </nav>
@@ -31,9 +34,9 @@
       <p class="lead">Horaires indicatifs — merci de consulter les mises à jour éventuelles.</p>
 
       <div class="grid-3">
-        <div class="card"><h3>Accueil</h3><p class="muted">10:00</p><p>Accueil des invités, installation.</p></div>
-        <div class="card"><h3>Cérémonie traditionnelle</h3><p class="muted">12:00</p><p>Rites, présentation des familles.</p></div>
-        <div class="card"><h3>Festivités</h3><p class="muted">15:00 → tard</p><p>Repas, danses, soirée.</p></div>
+        <div class="card"><h3>Accueil</h3><p class="muted">13:00<p>Instalation des familles et invités à la résidence Okalla Ahanda.</p></div>
+        <div class="card"><h3>Cérémonie traditionnelle</h3><p class="muted">15:00<p>Présentation symbollique de la dot et rituels traditionnels.</p></div>
+        <div class="card"><h3>Réception</h3><p class="muted">18:00 → tard</p><p>Repas et soirée festive.</p></div>
       </div>
 
       <h2 style="margin-top:24px">Lieu & itinéraire</h2>
@@ -42,18 +45,20 @@
       <!-- Carte : Google Maps embed (remplace la src par la tienne si tu as les coordonnées exactes) -->
       <div class="map-card card" style="margin-top:12px">
         <iframe
-          width="100%" height="420" style="border:0"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Douala+Cameroun&output=embed">
+            width="100%" height="420" style="border:0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=11.514%2C3.927%2C11.534%2C3.947&layer=mapnik&marker=3.9374%2C11.5242229">
         </iframe>
-      </div>
-
+     </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-inner"><p>© 2025 — Ekombitié.</p></div>
+    <div class="container footer-inner">
+      <p>© 2025 — Avec amour. Conçu pour <strong>Nancy & Rudy
+    </div>
   </footer>
 </body>
 </html>

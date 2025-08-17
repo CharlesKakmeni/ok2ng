@@ -4,21 +4,24 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>FAQ • Ekombitié</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- NAV -->
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand"><a href="index.html" class="brand-link">Ekombitié</a></div>
-      <nav class="nav">
-        <button id="menuToggle5" class="menu-toggle" aria-expanded="false">☰</button>
-        <ul class="nav-list" id="navList5">
+      <div class="brand">
+        <a href="index.html" class="brand-link">Ekombitié <span class="dot">•</span> 27/12/2025</a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <button id="menuToggle" aria-expanded="false" class="menu-toggle">☰</button>
+        <ul class="nav-list" id="navList">
           <li><a href="index.html">Accueil</a></li>
           <li><a href="programme.html">Programme</a></li>
-          <li><a href="rsvp.html" class="btn-primary">RSVP</a></li>
-          <li><a href="accommodation.html">Accommodation</a></li>
+          <li><a href="rsvp.html">RSVP</a></li>
+          <li><a href="hebergement.html">Hébergement</a></li>
           <li><a href="faq.html">FAQ</a></li>
         </ul>
       </nav>
@@ -42,8 +45,11 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-inner"><p>© 2025 — Ekombitié.</p></div>
+    <div class="container footer-inner">
+      <p>© 2025 — Avec amour. Conçu pour <strong>Nancy & Rudy
+    </div>
   </footer>
 </body>
 </html>
