@@ -1,4 +1,38 @@
-// Menu burger
+// ====== Gate (mot de passe) — par session (redemandé à chaque onglet/fenêtre) ======
+(function gate(){
+  const PASS = 'BornToBeTogether';
+  const KEY  = 'ek_auth_session';
+
+  // Si on est sur login.html, gérer le formulaire
+  if (location.pathname.endsWith('login.html') || (location.pathname === '/' && location.search.includes('login'))) {
+    const form = document.getElementById('gateForm');
+    const input = document.getElementById('gatePwd');
+    const msg = document.getElementById('gateMsg');
+    if (form && input) {
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        if (input.value === PASS) {
+          try { sessionStorage.setItem(KEY, '1'); } catch(e) {}
+          if (msg) msg.textContent = 'Accès autorisé. Redirection…';
+          setTimeout(()=>{ location.href = 'index.html'; }, 400);
+        } else {
+          if (msg) msg.textContent = 'Mot de passe incorrect.';
+        }
+      });
+    }
+    return; // ne pas exécuter le reste du JS sur la page login
+  }
+
+  // Sur toutes les autres pages : vérifier la session
+  try {
+    const ok = sessionStorage.getItem(KEY) === '1';
+    if (!ok) location.replace('login.html');
+  } catch(e) {
+    location.replace('login.html');
+  }
+})();
+
+// ===== Menu burger
 const menuBtn = document.getElementById('menuBtn');
 const nav = document.getElementById('nav');
 if (menuBtn && nav) {
@@ -8,7 +42,7 @@ if (menuBtn && nav) {
   });
 }
 
-// Countdown
+// ===== Countdown
 (function countdown(){
   const t = new Date('2025-12-27T13:00:00Z'); // UTC
   const d = document.getElementById('d');
@@ -33,7 +67,7 @@ if (menuBtn && nav) {
   tick(); setInterval(tick, 1000);
 })();
 
-// Lecteur musique
+// ===== Lecteur musique
 (function music(){
   const audio = document.getElementById('bgMusic');
   const toggle = document.getElementById('musicToggle');
@@ -77,12 +111,12 @@ if (menuBtn && nav) {
   timeEl.textContent = fmt(0);
 })();
 
-/* === Hero background slider (plus rapide) === */
+/* === Hero background slider (un peu plus rapide) === */
 (function bgSlider(){
   const slides = Array.from(document.querySelectorAll('.bg-slide'));
   if (slides.length <= 1) return;
   let i = 0;
-  const SLIDE_MS = 4000; // 4 secondes (au lieu de 6)
+  const SLIDE_MS = 4000; // 4 s
   setInterval(() => {
     slides[i].classList.remove('active');
     i = (i + 1) % slides.length;
@@ -90,7 +124,7 @@ if (menuBtn && nav) {
   }, SLIDE_MS);
 })();
 
-// Galerie auto-scroll + drag/swipe
+// ===== Galerie auto-scroll + drag/swipe
 (function stripScroller(){
   const scroller = document.getElementById('galleryStrip');
   if(!scroller) return;
@@ -134,7 +168,7 @@ if (menuBtn && nav) {
   });
 })();
 
-// FAQ accordéon
+// ===== FAQ accordéon
 document.querySelectorAll('.qa-q').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     const open = btn.getAttribute('aria-expanded') === 'true';
@@ -144,11 +178,11 @@ document.querySelectorAll('.qa-q').forEach(btn=>{
   });
 });
 
-// RSVP feedback
+// ===== RSVP feedback (mailto)
 const rsvpForm = document.getElementById('rsvpForm');
 if (rsvpForm){
   rsvpForm.addEventListener('submit', ()=> {
     const msg = document.getElementById('formMsg');
-    if (msg) msg.textContent = "Envoi en cours…";
+    if (msg) msg.textContent = "Ouverture de votre application mail…";
   });
 }

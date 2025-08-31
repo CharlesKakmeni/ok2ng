@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accès • Ekombitié</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body class="page-frame">
+  <main class="wrap center-screen">
+    <section class="section" style="padding:0">
+      <div class="card gate-card">
+        <h1 class="title-serif" style="margin-top:4px">Bienvenue</h1>
+        <p class="muted center" style="margin-bottom:10px">Entrez le mot de passe pour accéder au site.</p>
+
+        <form id="gateForm" class="form" autocomplete="off">
+          <label for="gatePwd">Mot de passe</label>
+          <input id="gatePwd" name="gatePwd" type="password" required placeholder="••••••••••••••••" />
+          <div class="form-actions" style="justify-content:center">
+            <button type="submit" class="btn btn-primary">Entrer</button>
+          </div>
+          <p id="gateMsg" class="muted center" aria-live="polite" style="margin-top:8px"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2025 — Conçu avec amour pour <strong>Nancy & Rudy</strong></p>
+    </div>
+  </footer>
+</body>
+</html>
