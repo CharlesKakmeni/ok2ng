@@ -89,9 +89,7 @@ h3{font-size:1.12rem;margin:.2rem 0}
 }
 
 /* ===== HERO ===== */
-.hero{
-  position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden
-}
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden}
 .hero-bg-slider{position:absolute;inset:0;overflow:hidden;z-index:0}
 .bg-slide{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
@@ -102,7 +100,7 @@ h3{font-size:1.12rem;margin:.2rem 0}
 .bg-slide.active{opacity:1;transform:scale(1)}
 .hero .hero-inner{
   position:relative;z-index:2;
-  background:rgba(255,255,255,.82);   /* plus transparent */
+  background:rgba(255,255,255,.82);
   border:1px solid #eee;border-radius:16px;box-shadow:var(--shadow);
   width:min(740px,92vw); padding:clamp(16px,3.5vw,22px); margin:0 auto
 }
@@ -125,11 +123,7 @@ h3{font-size:1.12rem;margin:.2rem 0}
 @media(min-width:960px){ .audio-progress{width:180px;height:5px} .audio-time{font-size:.84rem} .icon-btn{width:28px;height:28px;font-size:.9rem} }
 
 /* ===== Galerie ===== */
-.strip-scroller{
-  overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;
-  scrollbar-width:none;border-radius:14px;background:#fff;box-shadow:var(--shadow);
-  cursor:grab;user-select:none
-}
+.strip-scroller{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:14px;background:#fff;box-shadow:var(--shadow);cursor:grab;user-select:none}
 .strip-scroller::-webkit-scrollbar{display:none}
 .strip-scroller.dragging{cursor:grabbing}
 .strip-track{display:flex;gap:14px;align-items:center;padding:14px;min-width:max-content}
@@ -137,9 +131,7 @@ h3{font-size:1.12rem;margin:.2rem 0}
 @media(min-width:760px){ .strip-track img{height:320px} }
 
 /* ===== MESSAGE (vidéo plein écran, centré) ===== */
-.message.message-full{
-  position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden
-}
+.message.message-full{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden}
 .message-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.42);z-index:1}
 .message-card{position:relative;z-index:2;width:100%;display:flex;justify-content:center;align-items:center}
 .message-card-inner{
@@ -156,7 +148,7 @@ h3{font-size:1.12rem;margin:.2rem 0}
 /* ===== Avant de venir ===== */
 .preps{padding:0}
 .preps-inner{
-  background: linear-gradient(180deg, rgba(255,252,248,.75), rgba(255,252,248,.70)); /* plus transparent */
+  background: linear-gradient(180deg, rgba(255,252,248,.75), rgba(255,252,248,.70));
   border-top:1px solid rgba(0,0,0,.06);
   border-bottom:1px solid rgba(0,0,0,.06);
   backdrop-filter: blur(2px);
@@ -164,12 +156,10 @@ h3{font-size:1.12rem;margin:.2rem 0}
 .preps .wrap{padding:24px 16px}
 .info{list-style:none; padding-left:0; display:grid; gap:12px; margin:12px 0 0}
 .info li{
-  background:rgba(255,255,255,.85);   /* plus transparent */
+  background:rgba(255,255,255,.85);
   border:1px solid #eee; border-radius:12px;
   box-shadow:var(--shadow); padding:12px
 }
-
-/* --- Centrage mobile pour Avant de venir --- */
 @media(max-width:760px){
   .preps .info{display:flex;flex-direction:column;align-items:center;gap:16px}
   .preps .info li{max-width:90%;text-align:center}
@@ -188,9 +178,60 @@ h3{font-size:1.12rem;margin:.2rem 0}
 .form-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .map{margin-top:10px;border-radius:12px;overflow:hidden;border:1px solid #eee;box-shadow:var(--shadow)}
 
-/* ===== Footer (collé en bas) ===== */
-.site-footer{
-  margin-top:auto;border-top:1px solid #eee;background:#faf6f2;
-  position:relative;bottom:0;width:100%;
+/* ===== Liens d'hôtels — version minimaliste ===== */
+.hotel-card h3{margin-bottom:6px}
+.hotel-card p{margin:0 0 10px}
+.link-row{display:flex;flex-wrap:wrap;gap:14px}
+.link-chip{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:0;background:transparent;border:0;border-radius:6px;
+  font-weight:600;font-size:.98rem;color:var(--ink);
+  text-decoration:underline;text-decoration-color:transparent;
+  text-underline-offset:3px;line-height:1.2;
+  transition:color .15s ease, text-decoration-color .15s ease;
 }
+.link-chip::before{
+  content:"";width:6px;height:6px;border-radius:50%;
+  background:currentColor;opacity:.45;
+}
+.link-chip:hover{color:var(--accent-2);text-decoration-color:var(--accent-2)}
+.link-chip:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(183,110,62,.2)}
+.link-chip[href*="maps.google"]{color:#294d7a}
+.link-chip[href*="maps.google"]:hover{text-decoration-color:#294d7a}
+@media (max-width:480px){
+  .link-row{gap:10px}
+  .link-chip{font-size:.96rem}
+}
+
+/* ===== Footer ===== */
+.site-footer{margin-top:auto;border-top:1px solid #eee;background:#faf6f2;position:relative;bottom:0;width:100%}
 .site-footer .wrap{padding:18px 16px;text-align:center}
+/* Aperçu photo des hôtels */
+.hotel-card{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.hotel-img{
+  border-radius:12px;
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+@media(min-width:760px){
+  .hotel-img{ height:180px }
+}
+/* Liens dans la FAQ */
+.qa-a a{
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(183,110,62,.4); /* soulignement discret */
+  text-underline-offset: 3px;
+  transition: color .2s, text-decoration-color .2s;
+}
+
+.qa-a a:hover{
+  color: var(--accent-2);
+  text-decoration-color: var(--accent-2);
+}
