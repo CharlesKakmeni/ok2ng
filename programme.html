@@ -2,62 +2,57 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Programme • Ekombitié</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
-<body>
-  <!-- NAV -->
+<body class="page-frame">
   <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <a href="index.html" class="brand-link">Ekombitié <span class="dot">•</span> 27/12/2025</a>
-      </div>
-      <nav class="nav" aria-label="Navigation principale">
-        <button id="menuToggle" aria-expanded="false" class="menu-toggle">☰</button>
-        <ul class="nav-list" id="navList">
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="programme.html">Programme</a></li>
-          <li><a href="rsvp.html">RSVP</a></li>
-          <li><a href="hebergement.html">Hébergement</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-        </ul>
+    <div class="wrap">
+      <a href="index.html" class="brand"><img src="assets/photos/N&R.png" alt="Nancy & Rudy"></a>
+      <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+      <nav id="nav" class="nav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a class="active" href="programme.html">Programme</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="hebergement.html">Hébergement</a>
+        <a href="faq.html">FAQ</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="section container">
-      <h1>Programme de la journée</h1>
-      <p class="lead">Horaires indicatifs — merci de consulter les mises à jour éventuelles.</p>
+  <main class="wrap">
+    <section class="section programme-section">
+      <div class="card">
+        <h1>Programme de la journée</h1>
+        <p class="muted">Horaires indicatifs — consultez ici les éventuelles mises à jour.</p>
 
-      <div class="grid-3">
-        <div class="card"><h3>Accueil</h3><p class="muted">13:00<p>Instalation des familles et invités à la résidence Okalla Ahanda.</p></div>
-        <div class="card"><h3>Cérémonie traditionnelle</h3><p class="muted">15:00<p>Présentation symbollique de la dot et rituels traditionnels.</p></div>
-        <div class="card"><h3>Réception</h3><p class="muted">18:00 → tard</p><p>Repas et soirée festive.</p></div>
+        <div class="grid-3">
+          <div class="card small"><h3>Accueil</h3><p class="muted">12:00</p><p>Installation des familles et invités à la résidence Okalla Ahanda.</p></div>
+          <div class="card small"><h3>Cérémonie traditionnelle</h3><p class="muted">13:00</p><p>Présentation symbolique de la dot et rituels traditionnels.</p></div>
+          <div class="card small"><h3>Réception</h3><p class="muted">15:00</p><p>Repas et soirée festive.</p></div>
+        </div>
       </div>
 
-      <h2 style="margin-top:24px">Lieu & itinéraire</h2>
-      <p class="muted">Coordonnées : Ekombitié, Cameroun — (ex : lat: X, long: Y). Utilise la carte ci-dessous ou ouvre dans Google Maps.</p>
-
-      <!-- Carte : Google Maps embed (remplace la src par la tienne si tu as les coordonnées exactes) -->
-      <div class="map-card card" style="margin-top:12px">
-        <iframe
-            width="100%" height="420" style="border:0"
-            loading="lazy"
+      <div class="card programme-gap">
+        <h2>Lieu & itinéraire</h2>
+        <p class="muted">Ekombitié, Cameroun. Utilisez la carte ci-dessous ou ouvrez le lieu dans votre application préférée.</p>
+        <div class="map">
+          <iframe
+            width="100%" height="380" style="border:0" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             src="https://www.openstreetmap.org/export/embed.html?bbox=11.514%2C3.927%2C11.534%2C3.947&layer=mapnik&marker=3.9374%2C11.5242229">
-        </iframe>
-     </div>
+          </iframe>
+        </div>
+      </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2025 — Avec amour. Conçu pour <strong>Nancy & Rudy
+    <div class="wrap">
+      <p>© 2025 — Conçu avec amour pour <strong>Nancy & Rudy</strong></p>
     </div>
   </footer>
 </body>

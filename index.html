@@ -2,98 +2,129 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Acceuil • Ekombitié</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accueil • Ekombitié</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
-<body>
-  <!-- NAV -->
+<body class="page-frame home">
   <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <a href="index.html" class="brand-link">Ekombitié <span class="dot">•</span> 27/12/2025</a>
-      </div>
-      <nav class="nav" aria-label="Navigation principale">
-        <button id="menuToggle" aria-expanded="false" class="menu-toggle">☰</button>
-        <ul class="nav-list" id="navList">
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="programme.html">Programme</a></li>
-          <li><a href="rsvp.html">RSVP</a></li>
-          <li><a href="hebergement.html">Hébergement</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-        </ul>
+    <div class="wrap">
+      <a href="index.html" class="brand"><img src="assets/photos/N&R.png" alt="Nancy & Rudy"></a>
+      <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+      <nav id="nav" class="nav" aria-label="Navigation principale">
+        <a class="active" href="index.html">Accueil</a>
+        <a href="programme.html">Programme</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="hebergement.html">Hébergement</a>
+        <a href="faq.html">FAQ</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO / SLIDER -->
   <main>
+    <!-- HERO -->
     <section class="hero">
-      <div class="slider" aria-hidden="false">
-        <img src="assets/photos/photo1.jpg" alt="Photo 1" class="slide active">
-        <img src="assets/photos/photo2.jpg" alt="Photo 2" class="slide">
-        <img src="assets/photos/photo3.jpg" alt="Photo 3" class="slide">
+      <div class="hero-bg-slider" aria-hidden="true">
+        <img src="assets/photos/photo1.jpg" alt="" class="bg-slide active">
+        <img src="assets/photos/photo2.jpg" alt="" class="bg-slide">
+        <img src="assets/photos/photo3.jpg" alt="" class="bg-slide">
       </div>
 
-      <div class="hero-card container">
-        <div class="eyebrow">Mariage traditionnel</div>
-        <h1 class="hero-title">Nancy &amp; Rudy</h1>
-        <p class="hero-sub">Samedi <strong>27 décembre 2025</strong> — <strong>Ekombitié</strong></p>
+      <div class="hero-inner wrap">
+        <p class="eyebrow">Mariage traditionnel</p>
+        <h1 class="title-serif">Nancy &amp; Rudy</h1>
+        <p class="muted">Samedi <strong>27 décembre 2025</strong> — <strong>Ekombitié</strong></p>
 
-        <div class="countdown" role="timer" aria-live="polite" id="countdownRoot">
-          <div class="cd"><span id="cdDays">0</span><small>jours</small></div>
-          <div class="cd"><span id="cdHours">00</span><small>heures</small></div>
-          <div class="cd"><span id="cdMinutes">00</span><small>minutes</small></div>
-          <div class="cd"><span id="cdSeconds">00</span><small>sec</small></div>
+        <div class="countdown" role="timer" aria-live="polite">
+          <div class="cd"><span id="d">0</span><small>jours</small></div>
+          <div class="cd"><span id="h">00</span><small>heures</small></div>
+          <div class="cd"><span id="m">00</span><small>minutes</small></div>
+          <div class="cd"><span id="s">00</span><small>sec</small></div>
         </div>
 
-        <div class="hero-actions">
-          <button id="playBtn" class="btn btn-ghost" aria-pressed="false">▶︎ Lancer la musique</button>
+        <div class="actions">
+          <div class="audio-ui" aria-label="Lecteur musique">
+            <button id="musicToggle" class="icon-btn" aria-pressed="false" aria-label="Lecture/Pause">▶︎</button>
+            <div class="audio-progress" id="audioProgress" role="slider" aria-label="Progression musique"
+                 tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="audio-bar" id="audioBar"></div>
+            </div>
+            <span class="audio-time" id="audioTime">0:00</span>
+            <audio id="bgMusic" preload="none" src="assets/music/ndolobukate.mp3"></audio>
+          </div>
+
+          <a href="rsvp.html" class="btn btn-primary btn-block">Je confirme ma présence</a>
         </div>
       </div>
     </section>
 
-<section class="intro-section">
-  <div class="intro-container container">
-    <h2>A love story about Nancy and Rudy</h2>
-    <p>Un récit d'amour, d'aventures et de souvenirs que nous partageons avec vous.</p>
-  </div>
-</section>
+    <!-- GALERIE -->
+    <section class="section wrap">
+      <h2 class="center title-serif">Quelques instants capturés</h2>
+      <div class="strip-scroller" id="galleryStrip">
+        <div class="strip-track">
+          <img src="assets/photos/photo3.jpg" alt="Moment 1">
+          <img src="assets/photos/photo4.jpg" alt="Moment 2">
+          <img src="assets/photos/photo5.jpg" alt="Moment 3">
+          <!-- doublons pour boucle fluide -->
+          <img src="assets/photos/photo3.jpg" alt="Moment 1 bis">
+          <img src="assets/photos/photo4.jpg" alt="Moment 2 bis">
+          <img src="assets/photos/photo5.jpg" alt="Moment 3 bis">
+        </div>
+      </div>
+    </section>
 
-    <!-- PETITE INTRO -->
-<section class="message-section">
-  <!-- VIDEO EN ARRIERE-PLAN -->
-  <video class="message-video" autoplay muted loop playsinline>
-    <source src="assets/photos/video1.mp4" type="video/mp4">
-    Votre navigateur ne supporte pas la vidéo.
-  </video>
+    <!-- MESSAGE FUTURS MARIÉS (plein écran) -->
+    <section class="message message-full">
+      <video class="message-bg" autoplay muted loop playsinline aria-hidden="true">
+        <source src="assets/photos/video1.mp4" type="video/mp4">
+      </video>
+      <div class="message-card">
+        <div class="wrap message-card-inner">
+          <h2 class="title-serif">Un mot des futurs mariés</h2>
+          <p class="lead msg-lead">
+              Nous sommes heureux de partager avec vous cette belle aventure.
+              Le 27 décembre 2025, à Ekombitié, nous unirons nos vies entourés de nos proches.
+              Ce site vous apportera toutes les informations pratiques pour célébrer ce moment avec nous.
 
-  <!-- TEXTE EN PREMIER PLAN -->
-  <div class="message-overlay container">
-    <h2><b>Un mot des futurs mariés</b></h2>
-    <p class="lead">
-      Nous sommes ravis de partager avec vous cette belle aventure !
-      Le 27 décembre 2025, nous unirons nos vies à Ekombitié, entourés de nos proches.
-      Ce site vous donnera toutes les infos pratiques pour célébrer avec nous.
-      Merci pour votre amour et votre présence — cela signifie tout pour nous.
-    </p>
-    <p class="muted">Nancy & Rudy</p>
-  </div>
-</section>
+              Merci pour votre amour et votre présence — ils comptent énormément pour nous.
+          </p>
+          <p class="muted msg-sign">Avec tout notre cœur,</p>
+          <p class="muted msg-sign">Nancy &amp; Rudy</p>
+        </div>
+      </div>
+    </section>
 
+    <!-- AVANT DE VENIR -->
+    <section class="preps">
+      <div class="preps-inner">
+        <div class="wrap">
+          <h2 class="title-serif">Avant de venir</h2>
+          <ul class="info">
+            <li>
+              <h3>Code vestimentaire</h3>
+              <p>Nous encourageons chaleureusement tous nos invités à porter le pagne des familles. À défaut, une tenue africaine traditionnelle est vivement souhaitée pour célébrer cette journée dans le respect de nos cultures..</p>
+            </li>
+            <li>
+              <h3>Arrivée & navettes</h3>
+              <p>Arrivez 15–20 min en avance. Navettes possibles selon la demande (à préciser au RSVP).</p>
+            </li>
+            <li>
+              <h3>Contacts utiles</h3>
+              <p>Numéros des témoins sur l’invitation. Hashtag <strong>#NancyRudy2025</strong></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2025 — Conçu pour <strong>Nancy & Rudy
+    <div class="wrap">
+      <p>© 2025 — Conçu avec amour pour <strong>Nancy & Rudy</strong></p>
     </div>
   </footer>
-
-  <!-- Audio (ne pas autoplay silencieux pour respecter navigateurs/UX) -->
-  <audio id="bgAudio" preload="none" src="assets/music/ambiance.mp3"></audio>
-
 </body>
 </html>

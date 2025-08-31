@@ -2,65 +2,45 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hébergement • Ekombitié</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
-<body>
-  <!-- NAV -->
+<body class="page-frame">
   <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <a href="index.html" class="brand-link">Ekombitié <span class="dot">•</span> 27/12/2025</a>
-      </div>
-      <nav class="nav" aria-label="Navigation principale">
-        <button id="menuToggle" aria-expanded="false" class="menu-toggle">☰</button>
-        <ul class="nav-list" id="navList">
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="programme.html">Programme</a></li>
-          <li><a href="rsvp.html">RSVP</a></li>
-          <li><a href="hebergement.html">Hébergement</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-        </ul>
+    <div class="wrap">
+      <a href="index.html" class="brand"><img src="assets/photos/N&R.png" alt="Nancy & Rudy"></a>
+      <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+      <nav id="nav" class="nav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="programme.html">Programme</a>
+        <a href="rsvp.html">RSVP</a>
+        <a class="active" href="hebergement.html">Hébergement</a>
+        <a href="faq.html">FAQ</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="section container">
-      <h1>Hébergement recommandé</h1>
-      <p class="muted">Options proches du lieu. N’hésite pas à nous demander pour organiser des navettes.</p>
-
-      <div class="grid-2">
-        <div class="card">
-          <div class="content">
-            <h3>Hôtel Élite</h3>
-            <p class="muted">5 min du lieu</p>
-            <p>Chambres avec petit-déjeuner, navette possible.</p>
-            <a href="#" class="btn">Réserver</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="content">
-            <h3>Villa Belle Vue (appart)</h3>
-            <p class="muted">3 chambres — proche du centre</p>
-            <p>Parfait pour groupe / famille.</p>
-            <a href="#" class="btn">Voir l'annonce</a>
-          </div>
+  <main class="wrap">
+    <section class="section">
+      <div class="card">
+        <h1>Les Hôtels</h1>
+        <p class="muted">Suggestions à proximité d'Ekombitié (à venir).</p>
+        <div class="grid-2">
+          <div class="card small"><h3>Hilton Yaoundé</h3><p>https://www.hilton.com/en/hotels/yaohitw-hilton-yaounde/?SEO_id=GMB-EMEA-TW-YAOHITW</p></div>
+          <div class="card small"><h3>Star Land Hotel Bastos</h3><p>https://starlandhotel.com</p></div>
+          <div class="card small"><h3>Hôtel Départemental de Mbalmayo</h3><p>https://share.google/237UQdXWS5iKYxS5H</p></div>
+          <div class="card small"><h3>Hotel Mont Febe</h3><p>https://www.hotelmontfbwg.com//p></div>
         </div>
       </div>
-
-      <div style="margin-top:18px" class="muted">Si besoin, on peut block­er des chambres — contactez-nous via l’email partagé sur l'invitation.</div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2025 — Avec amour. Conçu pour <strong>Nancy & Rudy
+    <div class="wrap">
+      <p>© 2025 — Conçu avec amour pour <strong>Nancy & Rudy</strong></p>
     </div>
   </footer>
 </body>
