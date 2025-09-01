@@ -8,6 +8,9 @@
   --radius:14px;
   --shadow:0 8px 24px rgba(0,0,0,.08);
   --wrap:1100px;
+
+  /* Taille du logo : mobile -> desktop */
+  --logo: clamp(52px, 7.2vw, 82px);
 }
 
 /* ===== Reset & Base ===== */
@@ -52,17 +55,44 @@ h3{font-size:1.12rem;margin:.2rem 0}
 @media(min-width:1024px){ .page-frame::before{ background-attachment: fixed } }
 
 /* ===== Header ===== */
-.site-header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #eee}
-.site-header .wrap{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:10px 16px}
-.brand img{width:40px;height:40px;border-radius:50%;object-fit:cover}
-.menu-btn{background:none;border:1px solid #ddd;border-radius:8px;padding:8px 10px;font-size:1rem}
-.nav{display:none;flex-direction:column;gap:8px;position:absolute;right:16px;top:56px;background:#fff;border:1px solid #eee;border-radius:12px;padding:10px;box-shadow:var(--shadow)}
+.site-header{
+  position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #eee
+}
+.site-header .wrap{
+  display:flex;align-items:center;gap:16px;justify-content:space-between;
+  padding:10px 16px
+}
+/* LOGO : plus visible, reste discret */
+.brand img{
+  width:var(--logo);
+  height:var(--logo);
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 4px 10px rgba(0,0,0,.06);
+}
+
+/* Menu burger / nav */
+.menu-btn{
+  background:none;border:1px solid #ddd;border-radius:8px;
+  padding:8px 10px;font-size:1rem
+}
+.nav{
+  display:none;flex-direction:column;gap:8px;
+  position:absolute;right:16px;
+  /* s’ouvre sous le header, même si le logo est grand */
+  top:calc(var(--logo) + 24px);
+  background:#fff;border:1px solid #eee;border-radius:12px;
+  padding:10px;box-shadow:var(--shadow)
+}
 .nav a{padding:8px 10px;border-radius:8px}
 .nav a.active,.nav a:hover{background:#f7efe9;color:var(--accent)}
 .nav.show{display:flex}
 @media(min-width:860px){
   .menu-btn{display:none}
-  .nav{position:static;display:flex;flex-direction:row;border:0;box-shadow:none;padding:0;background:transparent}
+  .nav{
+    position:static;display:flex;flex-direction:row;border:0;box-shadow:none;
+    padding:0;background:transparent;top:auto
+  }
 }
 
 /* ===== Cartes & Grids ===== */
@@ -122,41 +152,23 @@ h3{font-size:1.12rem;margin:.2rem 0}
 .audio-time{font-variant-numeric:tabular-nums;font-size:.9rem;color:var(--muted)}
 @media(min-width:960px){ .audio-progress{width:180px;height:5px} .audio-time{font-size:.84rem} .icon-btn{width:28px;height:28px;font-size:.9rem} }
 
-/* === Icônes CSS Play/Pause pour #musicToggle (évite les emojis) === */
+/* === Icônes CSS Play/Pause pour #musicToggle === */
 #musicToggle{
-  position: relative;
-  width: 32px;
-  height: 32px;
-  background: #fff;
-  border-radius: 50%;
-  border: 1px solid #d7c9bf;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: transparent;   /* masque tout texte éventuel */
-  font-size: 0;         /* empêche l’emoji */
+  position: relative;width: 32px;height: 32px;background: #fff;border-radius: 50%;
+  border: 1px solid #d7c9bf;display: flex;align-items: center;justify-content: center;
+  cursor: pointer;color: transparent;font-size: 0;
 }
 #musicToggle::before{
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  border-left: 10px solid var(--accent);   /* triangle PLAY */
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-  margin-left: 3px; /* centrage visuel */
+  content: "";display: block;width: 0;height: 0;
+  border-left: 10px solid var(--accent); /* PLAY */
+  border-top: 6px solid transparent;border-bottom: 6px solid transparent;margin-left: 3px;
 }
 #musicToggle.is-playing::before{
-  content: "";
-  width: 12px;
-  height: 12px;
-  border: none;
+  content: "";width: 12px;height: 12px;border: none;
   background: linear-gradient(90deg, var(--accent) 40%, transparent 40%),
               linear-gradient(90deg, var(--accent) 40%, transparent 40%);
-  background-size: 6px 100%;
-  background-repeat: no-repeat;
-  background-position: left center, right center; /* deux barres PAUSE */
+  background-size: 6px 100%;background-repeat: no-repeat;
+  background-position: left center, right center; /* PAUSE */
 }
 
 /* ===== Galerie ===== */
