@@ -122,6 +122,43 @@ h3{font-size:1.12rem;margin:.2rem 0}
 .audio-time{font-variant-numeric:tabular-nums;font-size:.9rem;color:var(--muted)}
 @media(min-width:960px){ .audio-progress{width:180px;height:5px} .audio-time{font-size:.84rem} .icon-btn{width:28px;height:28px;font-size:.9rem} }
 
+/* === Icônes CSS Play/Pause pour #musicToggle (évite les emojis) === */
+#musicToggle{
+  position: relative;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid #d7c9bf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: transparent;   /* masque tout texte éventuel */
+  font-size: 0;         /* empêche l’emoji */
+}
+#musicToggle::before{
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid var(--accent);   /* triangle PLAY */
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  margin-left: 3px; /* centrage visuel */
+}
+#musicToggle.is-playing::before{
+  content: "";
+  width: 12px;
+  height: 12px;
+  border: none;
+  background: linear-gradient(90deg, var(--accent) 40%, transparent 40%),
+              linear-gradient(90deg, var(--accent) 40%, transparent 40%);
+  background-size: 6px 100%;
+  background-repeat: no-repeat;
+  background-position: left center, right center; /* deux barres PAUSE */
+}
+
 /* ===== Galerie ===== */
 .strip-scroller{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:14px;background:#fff;box-shadow:var(--shadow);cursor:grab;user-select:none}
 .strip-scroller::-webkit-scrollbar{display:none}

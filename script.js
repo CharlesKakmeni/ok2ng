@@ -3,7 +3,6 @@
   const PASS = 'BornToBeTogether';
   const KEY  = 'ek_auth_session';
 
-  // Si on est sur login.html, gérer le formulaire
   if (location.pathname.endsWith('login.html') || (location.pathname === '/' && location.search.includes('login'))) {
     const form = document.getElementById('gateForm');
     const input = document.getElementById('gatePwd');
@@ -20,10 +19,9 @@
         }
       });
     }
-    return; // ne pas exécuter le reste du JS sur la page login
+    return;
   }
 
-  // Sur toutes les autres pages : vérifier la session
   try {
     const ok = sessionStorage.getItem(KEY) === '1';
     if (!ok) location.replace('login.html');
@@ -67,7 +65,7 @@ if (menuBtn && nav) {
   tick(); setInterval(tick, 1000);
 })();
 
-// ===== Lecteur musique
+// ===== Lecteur musique (icônes CSS, pas d’emoji)
 (function music(){
   const audio = document.getElementById('bgMusic');
   const toggle = document.getElementById('musicToggle');
@@ -79,7 +77,8 @@ if (menuBtn && nav) {
   const fmt = t => !isFinite(t) ? '0:00' : `${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;
 
   function setPlaying(isPlaying){
-    toggle.textContent = isPlaying ? '⏸' : '▶︎';
+    toggle.classList.toggle("is-playing", isPlaying);
+    toggle.classList.toggle("is-paused", !isPlaying);
     toggle.setAttribute('aria-pressed', String(isPlaying));
   }
 
@@ -178,11 +177,29 @@ document.querySelectorAll('.qa-q').forEach(btn=>{
   });
 });
 
-// ===== RSVP feedback (mailto)
+// ===== RSVP — envoi via Formspree (fetch)
 const rsvpForm = document.getElementById('rsvpForm');
 if (rsvpForm){
-  rsvpForm.addEventListener('submit', ()=> {
+  rsvpForm.addEventListener('submit', async (e)=> {
+    e.preventDefault();
     const msg = document.getElementById('formMsg');
-    if (msg) msg.textContent = "Ouverture de votre application mail…";
+    if (msg) msg.textContent = "Envoi en cours…";
+
+    try {
+      const response = await fetch(rsvpForm.action, {
+        method: 'POST',
+        body: new FormData(rsvpForm),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        if (msg) msg.textContent = "Merci ! Votre réponse a bien été envoyée 💌";
+        rsvpForm.reset();
+      } else {
+        if (msg) msg.textContent = "Une erreur est survenue, veuillez réessayer.";
+      }
+    } catch (err) {
+      if (msg) msg.textContent = "Erreur réseau, réessayez plus tard.";
+    }
   });
 }
